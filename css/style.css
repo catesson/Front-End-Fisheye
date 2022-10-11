@@ -82,6 +82,10 @@ body {
   margin: 0 auto;
 }
 
+p {
+  margin: 0;
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -126,10 +130,12 @@ h1 {
   width: 200px;
   border-radius: 50%;
   object-fit: cover;
+  text-align: center;
 }
 
-.photographer_section p {
-  margin: 0;
+.photographer_section article a {
+  text-align: center;
+  text-decoration: none;
 }
 
 .photographer_section--localisation {

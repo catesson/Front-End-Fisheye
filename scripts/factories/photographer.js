@@ -6,6 +6,9 @@ function photographerFactory(data) {
 
         //déclaration et intégration du contenu des bloc HTML
         const article = document.createElement( 'article' );
+        const link = document.createElement( 'a');
+        link.href="/photographer.html?id="+id;
+        link.ariaLabel = name;
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
         const h2 = document.createElement( 'h2' );
@@ -23,8 +26,9 @@ function photographerFactory(data) {
         prix.className = 'photographer_section--prix'
 
         // liaison au parent 
-        article.appendChild(img);
-        article.appendChild(h2);
+        article.appendChild(link);
+        link.appendChild(img);
+        link.appendChild(h2);
         article.appendChild(localisation);
         article.appendChild(slogan);
         article.appendChild(prix);
