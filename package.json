@@ -1,0 +1,20 @@
+{
+  "name": "catesson-steven-fisheye",
+  "version": "1.0.0",
+  "description": "projet 6 open classeroom",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./scss/style.scss:./css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catesson/Front-End-Fisheye.git"
+  },
+  "author": "catesson steven",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catesson/Front-End-Fisheye/issues"
+  },
+  "homepage": "https://github.com/catesson/Front-End-Fisheye#readme"
+}

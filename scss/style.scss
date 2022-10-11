@@ -1,0 +1,77 @@
+@import "unit.scss";
+@import "photographer.scss";
+
+body {
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+p{
+    margin : 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    
+}
+
+h1 {
+    color: $color-prim;
+    margin-right: 100px;
+}
+
+.logo {
+    height: 50px;
+    margin-left: 100px;
+}
+
+.photographer_section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+}
+
+.photographer_section article {
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.photographer_section article h2 {
+    color: $color-sec;
+    font-size: 2.25em;
+    margin: 5px auto;
+}
+
+.photographer_section article img {
+    height: 200px;
+    width: 200px;
+    border-radius : 50%;
+    object-fit: cover;
+   text-align: center;
+}
+.photographer_section article a{
+    text-align: center;
+    text-decoration: none;
+} 
+.photographer_section--localisation {
+    font-size: 0.8em;
+    color : $color-prim;
+    margin:2px auto;
+}
+.photographer_section--slogan {
+    font-size: 0.625em;
+}
+.photographer_section--prix {
+    font-size : 0.55em;
+    color : $color-prix-accueil;
+}
