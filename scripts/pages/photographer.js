@@ -23,16 +23,27 @@ async function filterPhotographers(id) {
     return filterPhotographe
 };
 
-async function displayData(photographer, media) {
+async function displayData(photographer, medias) {
     //fonction d'affichage des data
-
+    const page = document.querySelector('body')
     const photographerHeader = document.querySelector(".photograph-header");
-    console.log(photographer)
+    const mediaPhotographe = document.querySelector(".media-photographe");
+    console.log(mediaPhotographe)
+    console.log(medias)
     photographer.forEach((photographer) => {
         const photographerModel = photographerFactory(photographer);
         console.log(photographerModel)
         const profilDOM = photographerModel.getProfil();
+        const infoDOM = photographerModel.getPrice();
         photographerHeader.appendChild(profilDOM);
+        page.appendChild(infoDOM);
+    })
+    medias.forEach((medias) => {
+        const media = mediaFactory(medias); 
+        console.log(media)
+        const mediaDOM = media.getMediaDOM(); 
+        console.log(mediaDOM);
+        mediaPhotographe.appendChild(mediaDOM);
     })
 };
 
