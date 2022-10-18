@@ -1,7 +1,7 @@
 function mediaFactory(data){
     let media = "";
 
-
+    //test si c'est une image ou une vidéo
     if(data.image){
         media = createImg(data)
     }
@@ -22,6 +22,8 @@ function mediaFactory(data){
             const article = document.createElement( 'article');
             const image = document.createElement( 'img' );
             image.setAttribute("src", picture);
+            image.setAttribute("alt", `image ${media.title}`);
+            image.onclick = function () {displaylightBox(media, picture)};
             const contenu =document.createElement( 'div' );
             const title = document.createElement( 'h2' );
             title.textContent = media.title;
@@ -47,12 +49,23 @@ function mediaFactory(data){
 
         //affichage des videos dans le dom
         function getMediaDOM(){
+            //délcalration des éléments du dom
             const article = document.createElement( 'article');
+            const contenu =document.createElement( 'div' );
+            const videos = document.createElement('video');
+            videos.setAttribute("src", movie );
             const title = document.createElement( 'h2' );
             title.textContent = media.title;
-            article.appendChild(title);
-            return article
+            const nbLike = document.createElement( 'p' );
+            nbLike.textContent = likes;
 
+            // attribution des éléments au parent
+            article.appendChild(videos);
+            article.appendChild(contenu);
+            contenu.appendChild(title);
+            contenu.appendChild(nbLike);
+            
+            return article
         }
         return {id,photographerId,title,video,likes,date,price, movie, getMediaDOM}
     }

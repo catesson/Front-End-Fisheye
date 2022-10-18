@@ -8,7 +8,7 @@ body {
     margin: 0 auto;
 }
 main {
-    min-width: 1024px;
+    min-width: 1440px;
 }
 p{
     margin : 0;
@@ -26,6 +26,9 @@ header {
 h1 {
     color: $color-prim;
     margin-right: 100px;
+}
+h2{
+    color: $color-prim;
 }
 
 .logo {

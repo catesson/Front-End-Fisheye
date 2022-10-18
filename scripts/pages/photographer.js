@@ -11,9 +11,7 @@ async function getPhotographers() {
 async function filterMedia(id) {
     // Récupère les média du photographe dont c'est l'id
     const { media } = await getPhotographers();
-    console.log(media)
     const filterMedia = media.filter(item => item.photographerId == id);
-    console.log(filterMedia)
     return filterMedia
 };
 async function filterPhotographers(id) {
@@ -28,11 +26,8 @@ async function displayData(photographer, medias) {
     const page = document.querySelector('body')
     const photographerHeader = document.querySelector(".photograph-header");
     const mediaPhotographe = document.querySelector(".media-photographe");
-    console.log(mediaPhotographe)
-    console.log(medias)
     photographer.forEach((photographer) => {
         const photographerModel = photographerFactory(photographer);
-        console.log(photographerModel)
         const profilDOM = photographerModel.getProfil();
         const infoDOM = photographerModel.getPrice();
         photographerHeader.appendChild(profilDOM);
@@ -40,11 +35,10 @@ async function displayData(photographer, medias) {
     })
     medias.forEach((medias) => {
         const media = mediaFactory(medias); 
-        console.log(media)
-        const mediaDOM = media.getMediaDOM(); 
-        console.log(mediaDOM);
+        const mediaDOM = media.getMediaDOM(medias); 
         mediaPhotographe.appendChild(mediaDOM);
     })
+
 };
 
 async function init() {

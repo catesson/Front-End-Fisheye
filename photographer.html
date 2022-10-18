@@ -11,13 +11,23 @@
     <header>
       <a href="/"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page" /></a>
     </header>
-    <main id="main">
+    <main id="main" aria-hidden="false">
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
       <div class="media-photographe"></div>
+      <div class="lightBox">
+        <img class="lightBox_close" src="assets/icons/close-red.svg" onclick='closelightBox()' />
+        
+        <div class="lightBox_content">
+        
+        <img class="lightBox_content--image"/>
+        <h2></h2>
+        </div>
+        
+      </div>
     </main>
-    <div id="contact_modal">
+    <div id="contact_modal" role="dialog" aria-hidden="true">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
@@ -25,13 +35,21 @@
         </header>
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="prenom">Prénom</label>
+						<input id="prenom" />
+            <label for="nom">Nom</label>
+						<input id="nom"/>
+            <label for="email">Email</label>
+						<input id="email" />
+            <label for="message">Votre message</label>
+						<textarea id="message" ></textarea>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button--envoyer" onclick="submitModal()">Envoyer</button>
 				</form>
 			</div>
 		</div>
+    
+    <script src="scripts/utils/lightBox.js"></script>
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/factories/photographer.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
