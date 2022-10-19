@@ -68,5 +68,17 @@ function photographerFactory(data) {
         
         return (article);
     }
-    return {name, portrait,id,city,country,tagline,price, getUserCardDOM, getProfil}
+
+  async function getLikes(){
+        let like = 0;
+        var url = new URL(document.location.href)
+        var id = url.searchParams.get("id");
+        const media = await filterMedia(id)
+        media.forEach((media) => {        
+            //crée le carrouselle pour la lightBox
+            like += media.likes
+        })
+        return like
+    }
+    return {name, portrait,id,city,country,tagline,price, getUserCardDOM, getProfil, getLikes}
 }
