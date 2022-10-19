@@ -36,13 +36,20 @@ function mediaFactory(data){
 
             const coeur = document.createElement( 'img' );
             coeur.setAttribute("src","assets/icons/heart.svg");
+            //Ajout d'un like sur l'image et sur le total
+            coeur.onclick = function() {
+                nbLike.textContent = likes+1;
+                const nbLikeTotal = document.querySelector(".info .info_like");
+                nbLikeTotal.textContent= parseInt(nbLikeTotal.textContent)+1;
+                this.onclick = undefined;
+            }
 
             // attribution des éléments au parent
             article.appendChild(image);
             article.appendChild(contenu);
             contenu.appendChild(title);
             contenu.appendChild(nbLike);
-            nbLike.appendChild(coeur);
+            contenu.appendChild(coeur);
             
             return article
 
@@ -73,13 +80,20 @@ function mediaFactory(data){
 
             const coeur = document.createElement( 'img' );
             coeur.setAttribute("src","assets/icons/heart.svg");
+            //Ajout d'un like sur l'image et sur le total
+            coeur.onclick = function() {
+                nbLike.textContent = likes+1;
+                const nbLikeTotal = document.querySelector(".info .info_like");
+                nbLikeTotal.textContent= parseInt(nbLikeTotal.textContent)+1;
+                this.onclick = undefined;
+            }
 
             // attribution des éléments au parent
             article.appendChild(videos);
             article.appendChild(contenu);
             contenu.appendChild(title);
             contenu.appendChild(nbLike);
-            nbLike.appendChild(coeur);
+            contenu.appendChild(coeur);
             
             return article
         }

@@ -58,6 +58,7 @@
             margin: 0;
             }
             p{
+             margin-left: auto;
             font-weight: 600;
             font-size: 1.3em;
             color:$color-prim;
@@ -230,9 +231,14 @@ form {
         font-size: 1.2em;
         font-weight: 600;
     }
+    img{
+        margin-top: 19px;
+       margin-right: auto;
+       margin-left: 5px;
+       width:18px;
+       height: 19px;
+    }
     &_like{
-        img{
-            margin: 0 0 -3px 6px;
-        }
+        
     }
 }

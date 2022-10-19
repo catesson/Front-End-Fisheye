@@ -1,7 +1,7 @@
 //Mettre le code JavaScript lié à la page photographer.html
 //récupere les données du JSON média et photographe
 async function getPhotographers() {
-    
+
     const reponse = await fetch("data/photographers.json");
     const photographers = await reponse.json();
     // et bien retourner le tableau photographers seulement une fois
@@ -47,17 +47,21 @@ async function displayData(photographer, medias, nbLikes) {
     //affiche les images du photographe
     medias.forEach((medias) => {        
 
-        //crée le carrouselle pour la lightBox
+        
         const media = mediaFactory(medias); 
-        createLightBox(media);
         const mediaDOM = media.getMediaDOM(medias); 
-        mediaPhotographe.appendChild(mediaDOM);    
+        mediaPhotographe.appendChild(mediaDOM);  
+
+        //crée le carrouselle pour la lightBox
+        createLightBox(media);
+          
 
     })
 
     //affichage du nombre de like
     const pLike = document.querySelector(".info .info_like");
-    pLike.innerHTML = nbLikes + '<img src="assets/icons/black_heart.svg"/>';
+    pLike.innerHTML = nbLikes;
+    
 };
 
 async function init() {
@@ -73,7 +77,7 @@ async function init() {
     //recupere le nombre de like
     const photogaphe = photographerFactory(photographer);
     const nbLikes = await photogaphe.getLikes();
-    console.log(nbLikes);
+
 
     displayData(photographer, media, nbLikes);
 };
