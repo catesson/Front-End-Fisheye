@@ -68,15 +68,5 @@ function photographerFactory(data) {
         
         return (article);
     }
-    function getPrice(){
-        //récupération du Prix
-        const inforamtion = document.createElement('div');
-        inforamtion.className = 'info';
-        const prix = document.createElement('p');
-        prix.textContent = price+"€ / Jour";
-        
-        inforamtion.appendChild(prix);
-        return (inforamtion);
-    }
-    return {name, portrait,id,city,country,tagline,price, getUserCardDOM, getProfil, getPrice}
+    return {name, portrait,id,city,country,tagline,price, getUserCardDOM, getProfil}
 }

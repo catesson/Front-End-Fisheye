@@ -55,16 +55,21 @@
   justify-content: space-between;
   align-items: center;
 }
-.media-photographe article h2 {
+.media-photographe article div h2 {
   font-weight: 400;
   font-size: 1.3em;
   color: #901C1C;
   margin: 0;
 }
-.media-photographe article p {
+.media-photographe article div p {
   font-weight: 600;
   font-size: 1.3em;
   color: #901C1C;
+}
+.media-photographe article div img {
+  width: 17px;
+  height: 16px;
+  margin-left: 5px;
 }
 .media-photographe article img {
   width: 100%;
@@ -217,18 +222,22 @@ form textarea {
 .info {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   position: fixed;
-  bottom: 0px;
+  border-radius: 5px;
+  bottom: -35px;
   left: 65%;
   width: 328px;
   padding: 0 36px;
-  height: 40px;
+  height: 89px;
   background-color: #DB8876;
 }
 .info p {
+  margin-top: 15px;
   font-size: 1.2em;
   font-weight: 600;
+}
+.info_like img {
+  margin: 0 0 -8px 6px;
 }
 
 body {
@@ -236,6 +245,7 @@ body {
   margin: 0;
   max-width: 1440px;
   margin: 0 auto;
+  padding-bottom: 50px;
 }
 
 main {

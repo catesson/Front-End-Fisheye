@@ -20,21 +20,29 @@ function mediaFactory(data){
         function getMediaDOM(){
             //délcalration des éléments du dom
             const article = document.createElement( 'article');
+
             const image = document.createElement( 'img' );
             image.setAttribute("src", picture);
             image.setAttribute("alt", `image ${media.title}`);
             image.onclick = function () {displaylightBox(id)};
+
             const contenu =document.createElement( 'div' );
+
             const title = document.createElement( 'h2' );
             title.textContent = media.title;
+
             const nbLike = document.createElement( 'p' );
             nbLike.textContent = likes;
+
+            const coeur = document.createElement( 'img' );
+            coeur.setAttribute("src","assets/icons/heart.svg");
 
             // attribution des éléments au parent
             article.appendChild(image);
             article.appendChild(contenu);
             contenu.appendChild(title);
             contenu.appendChild(nbLike);
+            nbLike.appendChild(coeur);
             
             return article
 
@@ -51,19 +59,27 @@ function mediaFactory(data){
         function getMediaDOM(){
             //délcalration des éléments du dom
             const article = document.createElement( 'article');
+
             const contenu =document.createElement( 'div' );
+
             const videos = document.createElement('video');
             videos.setAttribute("src", movie );
+
             const title = document.createElement( 'h2' );
             title.textContent = media.title;
+
             const nbLike = document.createElement( 'p' );
             nbLike.textContent = likes;
+
+            const coeur = document.createElement( 'img' );
+            coeur.setAttribute("src","assets/icons/heart.svg");
 
             // attribution des éléments au parent
             article.appendChild(videos);
             article.appendChild(contenu);
             contenu.appendChild(title);
             contenu.appendChild(nbLike);
+            nbLike.appendChild(coeur);
             
             return article
         }

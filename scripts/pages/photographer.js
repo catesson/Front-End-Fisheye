@@ -29,11 +29,13 @@ async function displayData(photographer, medias) {
     photographer.forEach((photographer) => {
         const photographerModel = photographerFactory(photographer);
         const profilDOM = photographerModel.getProfil();
-        const infoDOM = photographerModel.getPrice();
+       //const infoDOM = photographerModel.getPrice();
         photographerHeader.appendChild(profilDOM);
-        page.appendChild(infoDOM);
+       // page.appendChild(infoDOM);
+       const prix = document.querySelector(".info .info_price");
+       prix.textContent = photographer.price +"€ / Jour";
     })
-    
+    let like = 0;
     //affiche les images du photographe
     medias.forEach((medias) => {        
         //crée le carrouselle pour la lightBox
@@ -41,8 +43,12 @@ async function displayData(photographer, medias) {
         createLightBox(media);
         const mediaDOM = media.getMediaDOM(medias); 
         mediaPhotographe.appendChild(mediaDOM);
+        like += medias.likes
+        
     })
-
+    //affichage du nombre de like
+    const pLike = document.querySelector(".info .info_like");
+    pLike.innerHTML = like + '<img src="assets/icons/black_heart.svg"/>';
 };
 
 async function init() {
