@@ -33,8 +33,12 @@ async function displayData(photographer, medias) {
         photographerHeader.appendChild(profilDOM);
         page.appendChild(infoDOM);
     })
-    medias.forEach((medias) => {
+    
+    //affiche les images du photographe
+    medias.forEach((medias) => {        
+        //crée le carrouselle pour la lightBox
         const media = mediaFactory(medias); 
+        createLightBox(media);
         const mediaDOM = media.getMediaDOM(medias); 
         mediaPhotographe.appendChild(mediaDOM);
     })

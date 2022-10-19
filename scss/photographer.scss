@@ -156,7 +156,7 @@ form {
 
 .lightBox{
     display: none;
-    position: fixed;
+    position: absolute;
     justify-content: center;
     flex-direction: row-reverse;
     flex-wrap: wrap;
@@ -164,7 +164,7 @@ form {
     width: 100%;
     min-width: 1440px;
     height: 100%;
-    top:25px;
+    top:0px;
     left:0;
     right : 0;
     bottom:0;
@@ -173,22 +173,42 @@ form {
     &_close{
         width:42px;
         height:42px;
-        margin: 25px 0 0 25px;
+        margin: 25px 0 0 0;
     }
     &_content{
-        &--image{
-            width: 1050px;
-            height:800px;
-            margin: 0 auto;
-            object-fit: cover;
+        display: flex;
+        flex-direction: column;
+    }
+    &_img{
+        width: 1050px;
+        height:800px;
+        margin: 0 auto;
+        object-fit: cover;
+        }
+    &_ul{
+        width: 1200px;
+        position : relative;
+        margin:20px 0 0 0;
+        &--li{
+            display:none;
+            list-style: none; 
+            align-items: center;
         } 
     }
     h2{
         width:100%;
         text-align: left;
+
     }
 }
-
+.prev, .next{
+    margin: 0 28px;
+    width: 30px;
+    height: 48px;
+}
+.next{
+    transform: rotate(180deg);
+}
 .info{
     display: flex;
     justify-content: space-between;

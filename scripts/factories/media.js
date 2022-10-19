@@ -23,7 +23,7 @@ function mediaFactory(data){
             const image = document.createElement( 'img' );
             image.setAttribute("src", picture);
             image.setAttribute("alt", `image ${media.title}`);
-            image.onclick = function () {displaylightBox(media, picture)};
+            image.onclick = function () {displaylightBox(id)};
             const contenu =document.createElement( 'div' );
             const title = document.createElement( 'h2' );
             title.textContent = media.title;

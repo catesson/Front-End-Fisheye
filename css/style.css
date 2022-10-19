@@ -159,7 +159,7 @@ form textarea {
 
 .lightBox {
   display: none;
-  position: fixed;
+  position: absolute;
   justify-content: center;
   flex-direction: row-reverse;
   flex-wrap: wrap;
@@ -167,7 +167,7 @@ form textarea {
   width: 100%;
   min-width: 1440px;
   height: 100%;
-  top: 25px;
+  top: 0px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -177,17 +177,41 @@ form textarea {
 .lightBox_close {
   width: 42px;
   height: 42px;
-  margin: 25px 0 0 25px;
+  margin: 25px 0 0 0;
 }
-.lightBox_content--image {
+.lightBox_content {
+  display: flex;
+  flex-direction: column;
+}
+.lightBox_img {
   width: 1050px;
   height: 800px;
   margin: 0 auto;
   object-fit: cover;
 }
+.lightBox_ul {
+  width: 1200px;
+  position: relative;
+  margin: 20px 0 0 0;
+}
+.lightBox_ul--li {
+  display: none;
+  list-style: none;
+  align-items: center;
+}
 .lightBox h2 {
   width: 100%;
   text-align: left;
+}
+
+.prev, .next {
+  margin: 0 28px;
+  width: 30px;
+  height: 48px;
+}
+
+.next {
+  transform: rotate(180deg);
 }
 
 .info {
@@ -242,6 +266,10 @@ h2 {
 .logo {
   height: 50px;
   margin-left: 100px;
+}
+
+ul {
+  padding: 0;
 }
 
 .photographer_section {
