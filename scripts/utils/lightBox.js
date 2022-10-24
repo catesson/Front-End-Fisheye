@@ -6,21 +6,24 @@ function displaylightBox(imageID) {
     const modal = document.querySelector(".lightBox");
     const main = document.querySelector("#main");
     const image = document.getElementById(imageID);
-    image.style.display = 'flex';
+    image.className += " current";
 	modal.style.display = "flex";
     modal.ariaHidden = false;
     main.ariaHidden = true;
 }
-
+function cleanLightBox(){
+    const modal = document.querySelector(".lightBox_ul");
+    modal.innerHTML="";
+}
 //fermeture de la modale LightBox
 function closelightBox() {
     const modal = document.querySelector(".lightBox");
     const main = document.querySelector("#main");
 
     //met en display none toute les images
-    const image = document.querySelectorAll('.lightBox_ul--li');
+    const image = document.querySelectorAll('.lightBox_ul--li + .current');
      image.forEach(image => {
-        image.style.display = 'none';
+        image.className = "lightBox_ul--li";
     });
     // met en display none la modale + gestion du ariahidden
     modal.style.display = "none";
@@ -68,33 +71,55 @@ function createLightBox(medias){
         }
         contentImg.appendChild(title);
         lightBoxPicture.appendChild(next);
+       
+
         
 }
 //fonction pour aller à l'image suivante du carousel
-function nextPicture(id){
+function nextPicture(){
     const carousel = document.querySelector('.lightBox_ul');
-    const carouselItem = document.getElementById(id);
+    const carouselItem = document.querySelector('.lightBox_ul--li.current');
+    console.log(carouselItem);
     //test si élément suivant existe ou pas
     if (carouselItem.nextElementSibling){
-        carouselItem.style.display = "none" ; 
-        carouselItem.nextElementSibling.style.display = "flex";
+        carouselItem.className = "lightBox_ul--li";
+        carouselItem.nextElementSibling.className += " current";
     }else {
-        carouselItem.style.display = "none" ; 
-        carousel.firstElementChild.style.display = "flex";
+        carouselItem.className = "lightBox_ul--li";
+        carousel.firstElementChild.className += " current";
     }
 
 }
 //fonction pour aller à l'image précédente du carousel
-function lastPicture(id){
+function lastPicture(){
     const carousel = document.querySelector('.lightBox_ul');
-    const carouselItem = document.getElementById(id);
+    const carouselItem = document.querySelector('.lightBox_ul--li.current');
+    
     //test si élément précédent existe ou pas
     if (carouselItem.previousElementSibling){
-        carouselItem.style.display = "none" ; 
-        carouselItem.previousElementSibling.style.display = "flex";
+        carouselItem.className = "lightBox_ul--li";
+        carouselItem.previousElementSibling.className += " current";
     } else {
-        carouselItem.style.display = "none" ; 
-        carousel.lastElementChild.style.display = "flex";
+        carouselItem.className = "lightBox_ul--li";
+        carousel.lastElementChild.className += " current";
     }
     
 }
+
+
+window.addEventListener("keydown", function(e) {
+    const keyCode = e.keyCode ? e.keyCode : e.which
+    const id = getId()
+    console.log(keyCode);
+    if (keyCode === 39) {
+        nextPicture()
+    } else if (keyCode === 37) {
+        lastPicture();
+    }else if (keyCode == 27 ){
+        closelightBox();
+    }
+    
+ })
+
+
+ 

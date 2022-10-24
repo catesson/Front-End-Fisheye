@@ -71,6 +71,7 @@ function mediaFactory(data){
 
             const videos = document.createElement('video');
             videos.setAttribute("src", movie );
+            videos.onclick = function () {displaylightBox(id)};
 
             const title = document.createElement( 'h2' );
             title.textContent = media.title;

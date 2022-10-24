@@ -44,6 +44,20 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0 100px;
+    &-trie{
+        width: 100%;
+        margin: 25px 0;
+    
+        
+        select{
+            background-color: $color-prim;
+            color:white;
+            width: 170px;
+            height: 69px;
+            border: none;
+            border-radius: 5px;   
+        }
+    }
     article{
         width:350px;
         div{
@@ -199,6 +213,9 @@ form {
             display:none;
             list-style: none; 
             align-items: center;
+            &.current{
+                display: flex;
+            }
         } 
     }
     h2{
@@ -237,8 +254,5 @@ form {
        margin-left: 5px;
        width:18px;
        height: 19px;
-    }
-    &_like{
-        
     }
 }

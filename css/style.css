@@ -46,6 +46,18 @@
   justify-content: space-between;
   margin: 0 100px;
 }
+.media-photographe-trie {
+  width: 100%;
+  margin: 25px 0;
+}
+.media-photographe-trie select {
+  background-color: #901C1C;
+  color: white;
+  width: 170px;
+  height: 69px;
+  border: none;
+  border-radius: 5px;
+}
 .media-photographe article {
   width: 350px;
 }
@@ -205,6 +217,9 @@ form textarea {
   list-style: none;
   align-items: center;
 }
+.lightBox_ul--li.current {
+  display: flex;
+}
 .lightBox h2 {
   width: 100%;
   text-align: left;
@@ -244,6 +259,7 @@ form textarea {
   width: 18px;
   height: 19px;
 }
+
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;

@@ -15,7 +15,19 @@
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
-      <div class="media-photographe"></div>
+      <div class="media-photographe-trie"> 
+        <form action="#" method="POST" id="trier">         
+        <label for="trier">Trier par            </label>  
+          <select name="pets" >
+              <option value="">Particulier</option>
+              <option value="date">Date</option>
+              <option value="titre">Titre</option>
+          </select>  
+        </form> 
+      </div> 
+      <div class="media-photographe">
+        
+      </div>
       <div class="lightBox">
         <img class="lightBox_close" src="assets/icons/close-red.svg" onclick='closelightBox()' />
         <ul class="lightBox_ul">
@@ -28,8 +40,8 @@
         
       </div>
     </main>
-    <div id="contact_modal" role="dialog" aria-hidden="true">
-			<div class="modal">
+
+			<div id="contact_modal" class="modal" aria-label="Modal de contact">
 				<header>
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
@@ -48,8 +60,9 @@
           <button class="contact_button--envoyer" onclick="submitModal()">Envoyer</button>
 				</form>
 			</div>
-		</div>
+	
     
+
     <script src="scripts/utils/lightBox.js"></script>
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/factories/photographer.js"></script>

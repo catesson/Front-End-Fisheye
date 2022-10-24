@@ -7,6 +7,18 @@ async function getPhotographers() {
     // et bien retourner le tableau photographers seulement une fois
     return (photographers) 
 }
+// Récupere l'id passer dans le l'url
+
+function getId(){
+    var url = new URL(document.location.href)
+    var id = url.searchParams.get("id");
+    return id
+}
+//retir tout les médias de la page photographe
+function cleanMedia(){
+    const visibleMedia = document.querySelector('#main .media-photographe');
+    visibleMedia.innerHTML = "";
+}
 
 // filtre les média et les photogaphe
 async function filterMedia(id) {
@@ -21,19 +33,72 @@ async function filterPhotographers(id) {
 
     // Récupère les datas du photographe dont c'est l'id
     const { photographers } = await getPhotographers();
-    const filterPhotographe = photographers.filter(item => item.id == id);
+    const filterPhotographe = photographers.find(item => item.id == id);
     return filterPhotographe
 };
+//trie les médias en fonction du trie demandé
+async function trierMedia(value){
+   
+    cleanMedia()
+    cleanLightBox()
+     // Récupere l'id passer dans le l'url
+    const id = getId()
 
-async function displayData(photographer, medias, nbLikes) {
+    //récupere les médias de l'artiste dont l'id est dans l'url
+    const medias = await filterMedia(id);
+
+    if (value === "titre"){
+        const mediasTrier = medias.sort(function(a,b) {
+            const collator = new Intl.Collator('en');
+            return collator.compare(a.title, b.title);
+         });
+         displayMedia(mediasTrier);
+         createLightBox(mediasTrier);
+         
+    }
+     else if (value === "date"){
+        const mediasTrier = medias.sort((a,b) => a.date - b.date);
+        displayMedia(mediasTrier);
+        createLightBox(mediasTrier);
+     }
+
+    
+}
+async function displaynbLike(photographer){
+
+    //recupere le nombre de like
+    const photogaphe = photographerFactory(photographer);
+    const nbLikes = await photogaphe.getLikes();
+
+    //affichage du nombre de like
+    const pLike = document.querySelector(".info .info_like");
+    pLike.innerHTML = nbLikes;
+}
+
+function displayMedia(medias){
+    const mediaPhotographe = document.querySelector(".media-photographe");
+
+    medias.forEach((medias) => {        
+        
+          //affiche les images du photographe
+        const media = mediaFactory(medias); 
+        const mediaDOM = media.getMediaDOM(medias); 
+        mediaPhotographe.appendChild(mediaDOM);  
+
+        //crée le carrouselle pour la lightBox
+        createLightBox(media);        
+    })
+    
+}
+async function displayData(photographer, medias) {
 
     //fonction d'affichage des data
     const page = document.querySelector('body')
     const photographerHeader = document.querySelector(".photograph-header");
-    const mediaPhotographe = document.querySelector(".media-photographe");
+    
 
-    photographer.forEach((photographer) => {
 
+    //affiche le photographe
         const photographerModel = photographerFactory(photographer);
         const profilDOM = photographerModel.getProfil();
        //const infoDOM = photographerModel.getPrice();
@@ -42,44 +107,32 @@ async function displayData(photographer, medias, nbLikes) {
        const prix = document.querySelector(".info .info_price");
        prix.textContent = photographer.price +"€ / Jour";
 
-    })
 
-    //affiche les images du photographe
-    medias.forEach((medias) => {        
-
-        
-        const media = mediaFactory(medias); 
-        const mediaDOM = media.getMediaDOM(medias); 
-        mediaPhotographe.appendChild(mediaDOM);  
-
-        //crée le carrouselle pour la lightBox
-        createLightBox(media);
-          
-
-    })
-
-    //affichage du nombre de like
-    const pLike = document.querySelector(".info .info_like");
-    pLike.innerHTML = nbLikes;
+    displayMedia(medias);
+    displaynbLike(photographer);
+    
     
 };
 
 async function init() {
-
-    // Récupere l'id passer dans le l'url
-    var url = new URL(document.location.href)
-    var id = url.searchParams.get("id");
-
+    const id = getId()
     // Récupère les datas des photographes
     const photographer = await filterPhotographers(id)
     const media = await filterMedia(id)
 
-    //recupere le nombre de like
-    const photogaphe = photographerFactory(photographer);
-    const nbLikes = await photogaphe.getLikes();
-
-
-    displayData(photographer, media, nbLikes);
+    
+    
+    //trier au changement d'option de tire
+    const select = document.querySelector("#trier");
+    console.log(select)
+    select.addEventListener('change', e => {
+        const sorter = e.target.value
+        trierMedia(sorter)
+    })
+    
+    displayData(photographer, media);
 };
+
+//gestion du clavier
 
 init()

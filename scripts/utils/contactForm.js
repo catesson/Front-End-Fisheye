@@ -3,6 +3,9 @@ function displayModal() {
     const main = document.querySelector("#main");
 	modal.style.display = "block";
     modal.ariaHidden = false;
+    modal.ariaHasPopup = "dialog";
+    modal.ariaModal= "true";
+    modal.setAttribute('role', "dialog")
     main.ariaHidden = true;
 }
 
@@ -10,6 +13,8 @@ function closeModal() {
     const modal = document.getElementById("contact_modal");
     const main = document.querySelector("#main");
     modal.style.display = "none";
+    modal.ariaHasPopup = " ";
+    modal.setAttribute('role', " ")
     modal.ariaHidden = true;
     main.ariaHidden = false;
 }
