@@ -60,6 +60,7 @@
 }
 .media-photographe article {
   width: 350px;
+  cursor: pointer;
 }
 .media-photographe article div {
   margin: 10px 0 10px;
@@ -143,6 +144,7 @@ button {
   font-size: 64px;
   font-weight: normal;
   text-align: center;
+  color: #901C1C;
 }
 
 form {

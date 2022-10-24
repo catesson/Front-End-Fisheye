@@ -13,7 +13,7 @@ function displaylightBox(imageID) {
 }
 function cleanLightBox(){
     const modal = document.querySelector(".lightBox_ul");
-    modal.innerHTML="";
+    modal.innerHTML=" ";
 }
 //fermeture de la modale LightBox
 function closelightBox() {
@@ -107,19 +107,6 @@ function lastPicture(){
 }
 
 
-window.addEventListener("keydown", function(e) {
-    const keyCode = e.keyCode ? e.keyCode : e.which
-    const id = getId()
-    console.log(keyCode);
-    if (keyCode === 39) {
-        nextPicture()
-    } else if (keyCode === 37) {
-        lastPicture();
-    }else if (keyCode == 27 ){
-        closelightBox();
-    }
-    
- })
 
 
  

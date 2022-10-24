@@ -14,6 +14,25 @@
     <main id="main" aria-hidden="false">
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <div id="contact_modal" class="modal" aria-label="Modal de contact" role="dialog">
+				<header>
+          <h2>Contactez-moi</h2>
+          <img src="assets/icons/close.svg" onclick="closeModal()" />
+        </header>
+				<form>
+					<div>
+						<label for="prenom">Prénom</label>
+						<input type="text" id="prenom" autofocus/>
+            <label for="nom">Nom</label>
+						<input type="text" id="nom"/>
+            <label for="email">Email</label>
+						<input type="email" id="email" />
+            <label for="message">Votre message</label>
+						<textarea id="message" ></textarea>
+					</div>
+          <button class="contact_button--envoyer" onclick="submitModal()">Envoyer</button>
+				</form>
+			</div>
       </div>
       <div class="media-photographe-trie"> 
         <form action="#" method="POST" id="trier">         
@@ -41,25 +60,7 @@
       </div>
     </main>
 
-			<div id="contact_modal" class="modal" aria-label="Modal de contact">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label for="prenom">Prénom</label>
-						<input id="prenom" />
-            <label for="nom">Nom</label>
-						<input id="nom"/>
-            <label for="email">Email</label>
-						<input id="email" />
-            <label for="message">Votre message</label>
-						<textarea id="message" ></textarea>
-					</div>
-          <button class="contact_button--envoyer" onclick="submitModal()">Envoyer</button>
-				</form>
-			</div>
+			
 	
     
 

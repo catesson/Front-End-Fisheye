@@ -20,11 +20,16 @@ function mediaFactory(data){
         function getMediaDOM(){
             //délcalration des éléments du dom
             const article = document.createElement( 'article');
-
+            const link = document.createElement( 'a');
+            link.ariaLabel = media.title;
+            link.href =""
+;               
             const image = document.createElement( 'img' );
             image.setAttribute("src", picture);
             image.setAttribute("alt", `image ${media.title}`);
-            image.onclick = function () {displaylightBox(id)};
+            link.onclick = function () {event.preventDefault();
+                displaylightBox(id)
+            };
 
             const contenu =document.createElement( 'div' );
 
@@ -45,7 +50,8 @@ function mediaFactory(data){
             }
 
             // attribution des éléments au parent
-            article.appendChild(image);
+            article.appendChild(link);                  
+            link.appendChild(image);
             article.appendChild(contenu);
             contenu.appendChild(title);
             contenu.appendChild(nbLike);
@@ -66,12 +72,17 @@ function mediaFactory(data){
         function getMediaDOM(){
             //délcalration des éléments du dom
             const article = document.createElement( 'article');
+            const link = document.createElement( 'a');
+            link.ariaLabel = media.title;
+           
 
             const contenu =document.createElement( 'div' );
 
             const videos = document.createElement('video');
             videos.setAttribute("src", movie );
-            videos.onclick = function () {displaylightBox(id)};
+            link.onclick = function () {event.preventDefault()
+                displaylightBox(id)
+            };
 
             const title = document.createElement( 'h2' );
             title.textContent = media.title;
@@ -90,7 +101,8 @@ function mediaFactory(data){
             }
 
             // attribution des éléments au parent
-            article.appendChild(videos);
+            article.appendChild(link);            
+            link.appendChild(videos);
             article.appendChild(contenu);
             contenu.appendChild(title);
             contenu.appendChild(nbLike);

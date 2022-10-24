@@ -1,5 +1,6 @@
 function displayModal() {
     const modal = document.getElementById("contact_modal");
+    document.getElementById("prenom").focus();
     const main = document.querySelector("#main");
 	modal.style.display = "block";
     modal.ariaHidden = false;
@@ -29,3 +30,4 @@ function submitModal(){
     console.log(`Message : ${message}`)
     closeModal();
 }
+

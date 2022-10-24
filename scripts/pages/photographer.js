@@ -41,8 +41,11 @@ async function trierMedia(value){
    
     cleanMedia()
     cleanLightBox()
+
+    
      // Récupere l'id passer dans le l'url
     const id = getId()
+    displaynbLike(filterPhotographers(id))
 
     //récupere les médias de l'artiste dont l'id est dans l'url
     const medias = await filterMedia(id);
@@ -53,13 +56,11 @@ async function trierMedia(value){
             return collator.compare(a.title, b.title);
          });
          displayMedia(mediasTrier);
-         createLightBox(mediasTrier);
          
     }
      else if (value === "date"){
         const mediasTrier = medias.sort((a,b) => a.date - b.date);
         displayMedia(mediasTrier);
-        createLightBox(mediasTrier);
      }
 
     
@@ -136,3 +137,17 @@ async function init() {
 //gestion du clavier
 
 init()
+
+window.addEventListener("keydown", function(e) {
+    const keyCode = e.keyCode ? e.keyCode : e.which
+    const id = getId()
+    if (keyCode === 39) {
+        nextPicture()
+    } else if (keyCode === 37) {
+        lastPicture();
+    }else if (keyCode == 27 ){
+        closelightBox();
+        closeModal();
+    }
+    
+ })

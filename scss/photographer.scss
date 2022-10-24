@@ -60,6 +60,7 @@
     }
     article{
         width:350px;
+        cursor: pointer;
         div{
             margin: 10px 0 10px ;
             display: flex;
@@ -142,6 +143,7 @@ button{
     font-size: 64px;
     font-weight: normal;
     text-align: center;
+    color: $color-prim;
 }
 
 form {
