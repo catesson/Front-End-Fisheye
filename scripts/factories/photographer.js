@@ -10,7 +10,8 @@ function photographerFactory(data) {
         link.href="photographer.html?id="+id;
         link.ariaLabel = name;
         const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
+        img.setAttribute("src", picture);
+        img.setAttribute("alt", name);
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         const localisation = document.createElement( 'p' );
@@ -43,6 +44,7 @@ function photographerFactory(data) {
         link.ariaLabel = name;
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
+        img.setAttribute("alt", name)
         const contenu = document.createElement( 'div' );
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;

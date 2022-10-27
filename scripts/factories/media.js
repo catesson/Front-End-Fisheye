@@ -19,19 +19,16 @@ function mediaFactory(data){
         //affichage des image dans le dom
         function getMediaDOM(){
             //délcalration des éléments du dom
-            const article = document.createElement( 'article');
-            const link = document.createElement( 'a');
-            link.ariaLabel = media.title;
-            link.href =""
-;               
+            const article = document.createElement( 'article');       
             const image = document.createElement( 'img' );
             image.setAttribute("src", picture);
-            image.setAttribute("alt", `image ${media.title}`);
-            link.onclick = function () {event.preventDefault();
+            image.setAttribute("alt", `${media.title}, closeup view`);
+            image.setAttribute("tabindex","0");
+            image.onclick = function () {event.preventDefault();
                 displaylightBox(id)
             };
 
-            const contenu =document.createElement( 'div' );
+            const contenu = document.createElement( 'div' );
 
             const title = document.createElement( 'h2' );
             title.textContent = media.title;
@@ -41,6 +38,8 @@ function mediaFactory(data){
 
             const coeur = document.createElement( 'img' );
             coeur.setAttribute("src","assets/icons/heart.svg");
+            coeur.setAttribute("alt","likes")
+            coeur.setAttribute("tabindex","0");
             //Ajout d'un like sur l'image et sur le total
             coeur.onclick = function() {
                 nbLike.textContent = likes+1;
@@ -50,8 +49,7 @@ function mediaFactory(data){
             }
 
             // attribution des éléments au parent
-            article.appendChild(link);                  
-            link.appendChild(image);
+            article.appendChild(image);                  
             article.appendChild(contenu);
             contenu.appendChild(title);
             contenu.appendChild(nbLike);
@@ -71,16 +69,15 @@ function mediaFactory(data){
         //affichage des videos dans le dom
         function getMediaDOM(){
             //délcalration des éléments du dom
-            const article = document.createElement( 'article');
-            const link = document.createElement( 'a');
-            link.ariaLabel = media.title;
-           
-
+            const article = document.createElement( 'article');                                 
             const contenu =document.createElement( 'div' );
 
             const videos = document.createElement('video');
+            
             videos.setAttribute("src", movie );
-            link.onclick = function () {event.preventDefault()
+            videos.ariaLabel = `${media.title}, closeup view`
+            videos.setAttribute("tabindex","0");
+            videos.onclick = function () {event.preventDefault()
                 displaylightBox(id)
             };
 
@@ -92,6 +89,10 @@ function mediaFactory(data){
 
             const coeur = document.createElement( 'img' );
             coeur.setAttribute("src","assets/icons/heart.svg");
+            coeur.setAttribute("alt","likes");
+            coeur.setAttribute("tabindex","0");
+
+        
             //Ajout d'un like sur l'image et sur le total
             coeur.onclick = function() {
                 nbLike.textContent = likes+1;
@@ -101,8 +102,7 @@ function mediaFactory(data){
             }
 
             // attribution des éléments au parent
-            article.appendChild(link);            
-            link.appendChild(videos);
+            article.appendChild(videos);            
             article.appendChild(contenu);
             contenu.appendChild(title);
             contenu.appendChild(nbLike);

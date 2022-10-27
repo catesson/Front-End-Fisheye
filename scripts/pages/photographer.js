@@ -61,6 +61,9 @@ async function trierMedia(value){
      else if (value === "date"){
         const mediasTrier = medias.sort((a,b) => a.date - b.date);
         displayMedia(mediasTrier);
+     } else if (value === "popularite"){
+        const mediasTrier = medias.sort((a,b) => b.likes - a.likes);
+        displayMedia(mediasTrier);
      }
 
     
@@ -140,7 +143,6 @@ init()
 
 window.addEventListener("keydown", function(e) {
     const keyCode = e.keyCode ? e.keyCode : e.which
-    const id = getId()
     if (keyCode === 39) {
         nextPicture()
     } else if (keyCode === 37) {

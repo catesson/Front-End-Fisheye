@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   height: 313px;
   margin: 0 100px;
 }
@@ -106,9 +106,17 @@ button {
   width: 170px;
   height: 70px;
   border: none;
-  background-color: #901C1C;
+  background-color: #901c1c;
   cursor: pointer;
   border-radius: 5px;
+}
+
+button.nostyle_button {
+  background-color: transparent;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0%;
 }
 
 .contact_button {
@@ -121,7 +129,7 @@ button {
   right: 0;
   top: 30px;
   border-radius: 5px;
-  background-color: #DB8876;
+  background-color: #db8876;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -130,21 +138,26 @@ button {
   padding: 35px;
   margin: auto;
 }
-
-.modal header {
+.modal_titre {
+  display: flex;
   justify-content: space-between;
+  align-items: baseline;
   width: 100%;
+  height: 150px;
 }
-
-.modal header img {
+.modal_titre img {
   cursor: pointer;
 }
-
-.modal header h2 {
+.modal_titre h1 {
   font-size: 64px;
   font-weight: normal;
-  text-align: center;
-  color: #901C1C;
+  color: black;
+  margin: 0;
+}
+.modal_titre--close {
+  background-color: transparent;
+  width: auto;
+  height: auto;
 }
 
 form {
@@ -154,7 +167,7 @@ form {
   align-items: flex-start;
 }
 form label {
-  color: #312E2E;
+  color: #312e2e;
   font-size: 36px;
 }
 form div {
@@ -227,7 +240,8 @@ form textarea {
   text-align: left;
 }
 
-.prev, .next {
+.prev,
+.next {
   margin: 0 28px;
   width: 30px;
   height: 48px;

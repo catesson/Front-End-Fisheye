@@ -1,69 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Fisheye - photographe</title>
   </head>
   <body>
     <header id="header">
-      <a href="/"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page" /></a>
+      <a href="/" id="logo" aria-label="Fisheye Home Page"
+        ><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"
+      /></a>
     </header>
     <main id="main" aria-hidden="false">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        <div id="contact_modal" class="modal" aria-label="Modal de contact" role="dialog">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label for="prenom">Prénom</label>
-						<input type="text" id="prenom" autofocus/>
-            <label for="nom">Nom</label>
-						<input type="text" id="nom"/>
-            <label for="email">Email</label>
-						<input type="email" id="email" />
-            <label for="message">Votre message</label>
-						<textarea id="message" ></textarea>
-					</div>
-          <button class="contact_button--envoyer" onclick="submitModal()">Envoyer</button>
-				</form>
-			</div>
+        <button
+          class="contact_button"
+          onclick="displayModal()"
+          aria-label="contact Me"
+        >
+          Contactez-moi
+        </button>
       </div>
-      <div class="media-photographe-trie"> 
-        <form action="#" method="POST" id="trier">         
-        <label for="trier">Trier par            </label>  
-          <select name="pets" >
-              <option value="">Particulier</option>
-              <option value="date">Date</option>
-              <option value="titre">Titre</option>
-          </select>  
-        </form> 
-      </div> 
-      <div class="media-photographe">
-        
+      <div class="media-photographe-trie">
+        <form action="#" method="POST" id="trier">
+          <label for="trier" >Trier par </label>
+          <select id="trier" aria-label="trier par">
+            <option value="popularite">popularité</option>
+            <option value="date">Date</option>
+            <option value="titre">Titre</option>
+          </select>
+        </form>
       </div>
-      <div class="lightBox">
-        <img class="lightBox_close" src="assets/icons/close-red.svg" onclick='closelightBox()' />
-        <ul class="lightBox_ul">
-        </ul>
-      </div>
+      <div class="media-photographe"></div>
+
       <div class="info">
         <p class="info_like"></p>
-        <img src="assets/icons/black_heart.svg"/>
+        <img src="assets/icons/black_heart.svg" alt="all likes" />
         <p class="info_price"></p>
-        
       </div>
     </main>
-
-			
-	
-    
-
+    <!--Modal de contact-->
+    <div
+      id="contact_modal"
+      class="modal"
+      aria-label="Modal de contact"
+      aria-roledescription="dialog"
+      aria-modal="true"
+      role="dialog"
+    >
+      <div class="modal_titre">
+        <h1></h1>
+        <button
+          class="modal_titre--close"
+          aria-label="close Contact form"
+          onclick="closeModal()"
+        >
+          <img src="assets/icons/close.svg" alt="close Contact form" />
+        </button>
+      </div>
+      <form action="" method="post">
+        <div>
+          <label for="prenom" aria-label="first-name">Prénom</label>
+          <input type="text" id="prenom" />
+          <label for="nom" aria-label="last-name">Nom</label>
+          <input type="text" id="nom" />
+          <label for="email" aria-label="Email">Email</label>
+          <input type="email" id="email" />
+          <label for="message" aria-label="Your message">Votre message</label>
+          <textarea id="message"></textarea>
+        </div>
+        <button
+          class="contact_button--envoyer"
+          onclick="submitModal()"
+          aria-label="send"
+        >
+          Envoyer
+        </button>
+      </form>
+    </div>
+    <!--LightBoxs-->
+    <div
+      class="lightBox"
+      aria-label="image closeup view"
+      aria-roledescription="dialog"
+      aria-modal="true"
+    >
+      <img
+        class="lightBox_close"
+        src="assets/icons/close-red.svg"
+        tabindex="0"  
+        aria-roledescription="button"
+        aria-label="Close dialog"
+        onclick="closelightBox()"
+      />
+      <ul class="lightBox_ul"></ul>
+    </div>
     <script src="scripts/utils/lightBox.js"></script>
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/factories/photographer.js"></script>
