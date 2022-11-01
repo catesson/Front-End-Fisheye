@@ -1,20 +1,53 @@
+
+// concerver le target dans la modal
+function trapFocus(element) {
+    var focusableEls = element.querySelectorAll('a[href], button, textarea, input, input, input, select');
+    var firstFocusableEl = focusableEls[0];  
+    firstFocusableEl.focus();
+    var lastFocusableEl = focusableEls[focusableEls.length - 1];
+    var KEYCODE_TAB = 9;
+  
+    element.addEventListener('keydown', function(e) {
+      var isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
+  
+      if (!isTabPressed) { 
+        return; 
+      }
+  
+      if ( e.shiftKey ) /* shift + tab */ {
+        if (document.activeElement === firstFocusableEl) {
+          lastFocusableEl.focus();
+            e.preventDefault();
+          }
+        } else /* tab */ {
+        if (document.activeElement === lastFocusableEl) {
+          firstFocusableEl.focus();
+            e.preventDefault();
+          }
+        }
+    });
+  }             
+
+
 //affiche la modal de contact
 function displayModal() {
     const modal = document.getElementById("contact_modal");
+    
+    
     //met le nom du photographe dans le titre
     personaliserModal();
     const main = document.querySelector("#main");
-    const header=document.querySelector('#header');
 	modal.style.display = "block";
     modal.ariaHidden = false;
     modal.ariaHasPopup = "dialog";
     modal.ariaModal= "true";
     modal.setAttribute('role', "dialog")
     main.ariaHidden = true;
+    trapFocus(modal);
 
     //gestion de la visibility
-    main.style.visibility="hidden";
-    header.style.visibility="hidden";
+    //main.style.visibility="hidden";
+    //header.style.visibility="hidden";
 }
 
 //fermeture de la modal contact
@@ -55,3 +88,6 @@ async function personaliserModal(){
     
 
 }
+
+///test trap focus modal 
+

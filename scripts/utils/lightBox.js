@@ -97,6 +97,7 @@ function createLightBox(medias){
         } else if (medias.video){
             const video = document.createElement('video');
             video.setAttribute('tabindex', '0');  
+            video.setAttribute('controls', 'true')
             video.setAttribute('src', medias.movie);
             video.ariaLabel = medias.title;
             video.className= "lightBox_img";

@@ -76,7 +76,8 @@ function mediaFactory(data){
             
             videos.setAttribute("src", movie );
             videos.ariaLabel = `${media.title}, closeup view`
-            videos.setAttribute("tabindex","0");
+            videos.tabIndex=0;
+            videos.controls=true;
             videos.onclick = function () {event.preventDefault()
                 displaylightBox(id)
             };

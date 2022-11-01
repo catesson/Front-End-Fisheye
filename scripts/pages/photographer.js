@@ -123,24 +123,83 @@ async function init() {
     // Récupère les datas des photographes
     const photographer = await filterPhotographers(id)
     const media = await filterMedia(id)
-
-    
-    
-    //trier au changement d'option de tire
-    const select = document.querySelector("#trier");
-    console.log(select)
-    select.addEventListener('change', e => {
-        const sorter = e.target.value
-        trierMedia(sorter)
-    })
-    
     displayData(photographer, media);
 };
 
-//gestion du clavier
+
+
+//création des tries personnalisé
+const defaultSelectInput = document.querySelector('#trier');
+
+createCustomSelect(defaultSelectInput);
+
+//fonction de création du select personnalisé
+function createCustomSelect(defaultSelect) {
+
+    const customSelect = document.createElement('div');
+    const text = document.createElement('p');    
+    
+    customSelect.appendChild(text);
+
+    customSelect.classList.add('custom-select-style');
+
+    customSelect.tabIndex=0;
+  
+    // met le selecteur avant le boutton
+    defaultSelect.parentElement.insertBefore(customSelect, defaultSelect.parentElement[0]);
+
+    // crée la liste personnalisé
+    // ===========
+  
+    const selectList = document.createElement('div');
+
+    selectList.classList.add('custom-list');
+
+    customSelect.appendChild(selectList);
+
+    // personnalise la liste d'element en fonction du select
+    // ====================
+  
+    // charge toutes les options dans un tableau
+    const elementsArray = Array.from(defaultSelect.children);
+    customSelect.ariaLabel= 'trier par'
+    customSelect.ariaHasPopup = 'listbox'
+
+    // pour toutes les valeurs du tableau:
+    elementsArray.forEach((el) => {
+        
+        const customElement = document.createElement('div');
+
+        customElement.classList.add('custom-list-element');
+        customElement.tabIndex = 0;
+                
+        customElement.innerText = el.innerText;
+        customElement.value = el.value;
+        customElement.ariaLabel = "Trier par " + el.value;
+
+        
+        
+        
+        // quand on click sur une des valeur 
+        customElement.addEventListener('click', () => {            
+            text.innerText = el.innerText;
+            defaultSelect.value = customElement.value.toString(); 
+            customSelect.ariaLabel = defaultSelect.value;
+            //trie les média au click   
+            trierMedia(defaultSelect.value);         
+        });
+
+        selectList.appendChild(customElement);
+
+    });
+
+    customSelect.addEventListener('click', ()=> {
+        selectList.classList.toggle('custom-list-visible');
+    });
+}
 
 init()
-
+//gestion du clavier
 window.addEventListener("keydown", function(e) {
     const keyCode = e.keyCode ? e.keyCode : e.which
     if (keyCode === 39) {

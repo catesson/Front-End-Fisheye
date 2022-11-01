@@ -47,8 +47,16 @@
   margin: 0 100px;
 }
 .media-photographe-trie {
-  width: 100%;
-  margin: 25px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 100px;
+}
+.media-photographe-trie form {
+  flex-direction: row;
+}
+.media-photographe-trie label {
+  margin-right: 15px;
 }
 .media-photographe-trie select {
   background-color: #901C1C;
@@ -96,6 +104,78 @@
   height: 300px;
   border-radius: 5px;
   object-fit: cover;
+}
+
+#trier {
+  display: none;
+}
+
+.custom-select-style {
+  width: 170px;
+  height: 56px;
+  background-color: #901C1C;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 5px;
+  color: #111;
+  margin: 0;
+}
+.custom-select-style p {
+  color: white;
+  font-size: 1.2em;
+  line-height: 56px;
+}
+
+.custom-select-style::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "<";
+  transform: rotate(90deg);
+  width: 40px;
+  height: 56px;
+  color: #fff;
+  font-size: 1.6rem;
+  position: absolute;
+  right: 5px;
+}
+
+/* =========== */
+.custom-list {
+  width: 100%;
+  height: 170px;
+  margin-top: -50px;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  display: none;
+  background-color: #901C1C;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.custom-list-visible {
+  display: block;
+}
+
+.custom-list-element {
+  width: 150px;
+  height: 56px;
+  background-color: #901C1C;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: 0 auto;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+.custom-list-element:last-child {
+  border: none;
 }
 
 button {
@@ -163,8 +243,8 @@ button.nostyle_button {
 form {
   display: flex;
   width: 100%;
-  flex-direction: column;
   align-items: flex-start;
+  flex-direction: column;
 }
 form label {
   color: #312e2e;
