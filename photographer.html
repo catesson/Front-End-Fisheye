@@ -18,17 +18,13 @@
     </header>
     <main id="main" aria-hidden="false">
       <div class="photograph-header">
-        <button
-          class="contact_button"
-          onclick="displayModal()"
-          aria-label="contact Me"
-        >
+        <button class="contact_button" aria-label="contact Me">
           Contactez-moi
         </button>
       </div>
       <div class="media-photographe-trie">
-        <form action="#" method="POST" >
-          <label for="trier" >Trier par </label>
+        <form action="#" method="POST">
+          <label for="trier">Trier par </label>
           <select id="trier" aria-label="trier par">
             <option value="popularite">Popularité</option>
             <option value="date">Date</option>
@@ -55,11 +51,7 @@
     >
       <div class="modal_titre">
         <h1></h1>
-        <button
-          class="modal_titre--close"
-          aria-label="close Contact form"
-          onclick="closeModal()"
-        >
+        <button class="modal_titre--close" aria-label="close Contact form">
           <img src="assets/icons/close.svg" alt="close Contact form" />
         </button>
       </div>
@@ -74,11 +66,7 @@
           <label for="message" aria-label="Your message">Votre message</label>
           <textarea id="message"></textarea>
         </div>
-        <button
-          class="contact_button--envoyer"
-          onclick="submitModal()"
-          aria-label="send"
-        >
+        <button class="contact_button--envoyer" aria-label="send">
           Envoyer
         </button>
       </form>
@@ -90,20 +78,14 @@
       aria-roledescription="dialog"
       aria-modal="true"
     >
-      <img
-        class="lightBox_close"
-        src="assets/icons/close-red.svg"
-        tabindex="0"  
-        aria-roledescription="button"
-        aria-label="Close dialog"
-        onclick="closelightBox()"
-      />
+      <a href="#" class="lightBox_close"
+        ><img
+          src="assets/icons/close-red.svg"
+          aria-roledescription="button"
+          aria-label="Close dialog"
+      /></a>
       <ul class="lightBox_ul"></ul>
     </div>
-    <script src="scripts/utils/lightBox.js"></script>
-    <script src="scripts/factories/media.js"></script>
-    <script src="scripts/factories/photographer.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
-    <script src="scripts/utils/contactForm.js"></script>
+    <script type="module" src="scripts/pages/photographer.js"></script>
   </body>
 </html>

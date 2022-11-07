@@ -48,11 +48,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin : 15px 100px;
-    form{
+    margin: 15px 100px;
+    form {
       flex-direction: row;
     }
-    label{
+    label {
       margin-right: 15px;
     }
 
@@ -106,8 +106,8 @@
   }
 }
 //cacher le select original
-#trier{
-  display:none;
+#trier {
+  display: none;
 }
 //custom select
 .custom-select-style {
@@ -121,9 +121,9 @@
   position: relative;
   border-radius: 5px;
   color: #111;
-  margin:0;
+  margin: 0;
   p {
-    color:white;
+    color: white;
     font-size: 1.2em;
     line-height: 56px;
   }
@@ -133,18 +133,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  content: '<';
+  content: "<";
   transform: rotate(90deg);
   width: 40px;
   height: 56px;
   color: #fff;
   font-size: 1.6rem;
-  position: absolute;  
-  right:5px;
+  position: absolute;
+  right: 5px;
 }
 
 .custom-select-style:active::after {
-
 }
 
 /* =========== */
@@ -157,7 +156,7 @@
   top: 50px;
   left: 0;
   display: none;
-  background-color: $color-prim;    
+  background-color: $color-prim;
   border-radius: 5px;
   overflow: hidden;
 }
@@ -175,16 +174,16 @@
   justify-content: center;
   align-items: center;
   color: white;
-  margin:0 auto;
+  margin: 0 auto;
   font-size: 1.2em;
   cursor: pointer;
-  &:last-child{
+  &:last-child {
     border: none;
   }
 }
 
 .custom-list-element:hover {
-  //background-color: #e4fd00;    
+  //background-color: #e4fd00;
 }
 
 button {
@@ -225,19 +224,19 @@ button.nostyle_button {
   padding: 35px;
   margin: auto;
   &_titre {
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: baseline;
     width: 100%;
     height: 150px;
     img {
-        cursor: pointer;
-      }
+      cursor: pointer;
+    }
     h1 {
-    font-size: 64px;
-    font-weight: normal;
-    color: black;
-    margin: 0;
+      font-size: 64px;
+      font-weight: normal;
+      color: black;
+      margin: 0;
     }
     &--close {
       background-color: transparent;
@@ -246,8 +245,6 @@ button.nostyle_button {
     }
   }
 }
-
-
 
 form {
   display: flex;

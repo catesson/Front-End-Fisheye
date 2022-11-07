@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass --watch ./scss/style.scss:./css/style.css"
+    "sass": "sass --watch ./scss/style.scss:./css/style.css",
+    "lint": "eslint --max-warnings=0 ."
+  
+  },
+  "gitHooks": {
+    "pre-push": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -16,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/catesson/Front-End-Fisheye/issues"
   },
-  "homepage": "https://github.com/catesson/Front-End-Fisheye#readme"
+  "homepage": "https://github.com/catesson/Front-End-Fisheye#readme",
+  "dependencies": {
+    "eslint": "^8.26.0"
+  },
+  "devDependencies": {
+    "yorkie": "^2.0.0"
+  }
+  
 }
