@@ -46,7 +46,8 @@ async function getLikes() {
 async function filterMedia(id) {
   // Récupère les média du photographe dont c'est l'id
   const { media } = await getPhotographers();
-  const filterMedia = media.filter((item) => item.photographerId == id);
+  
+  const filterMedia = media.filter((item) => item.photographerId.toString() === id);
   return filterMedia;
 }
 
@@ -54,7 +55,7 @@ export async function filterPhotographers(id) {
   // Récupère les datas du photographe dont c'est l'id
 
   const { photographers } = await getPhotographers();
-  const filterPhotographe = photographers.find((item) => item.id == id);
+  const filterPhotographe = photographers.find((item) => item.id.toString() === id);
   return filterPhotographe;
 }
 //trie les médias en fonction du trie demandé
