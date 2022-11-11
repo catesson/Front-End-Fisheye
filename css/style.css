@@ -14,7 +14,7 @@
   text-decoration: none;
 }
 .photograph-header h2 {
-  color: #D3573C;
+  color: #d3573c;
   font-size: 2.25em;
   margin: 5px auto;
 }
@@ -59,7 +59,7 @@
   margin-right: 15px;
 }
 .media-photographe-trie select {
-  background-color: #901C1C;
+  background-color: #901c1c;
   color: white;
   width: 170px;
   height: 69px;
@@ -79,14 +79,14 @@
 .media-photographe article div h2 {
   font-weight: 400;
   font-size: 1.3em;
-  color: #901C1C;
+  color: #901c1c;
   margin: 0;
 }
 .media-photographe article div p {
   margin-left: auto;
   font-weight: 600;
   font-size: 1.3em;
-  color: #901C1C;
+  color: #901c1c;
 }
 .media-photographe article div img {
   width: 17px;
@@ -113,7 +113,7 @@
 .custom-select-style {
   width: 170px;
   height: 56px;
-  background-color: #901C1C;
+  background-color: #901c1c;
   font-size: 0.9rem;
   font-weight: bold;
   display: flex;
@@ -122,6 +122,8 @@
   border-radius: 5px;
   color: #111;
   margin: 0;
+  text-decoration: none;
+  justify-content: center;
 }
 .custom-select-style p {
   color: white;
@@ -152,7 +154,7 @@
   top: 50px;
   left: 0;
   display: none;
-  background-color: #901C1C;
+  background-color: #901c1c;
   border-radius: 5px;
   overflow: hidden;
 }
@@ -164,7 +166,7 @@
 .custom-list-element {
   width: 150px;
   height: 56px;
-  background-color: #901C1C;
+  background-color: #901c1c;
   border-bottom: 1px solid #eee;
   display: flex;
   justify-content: center;
@@ -172,6 +174,7 @@
   color: white;
   margin: 0 auto;
   font-size: 1.2em;
+  text-decoration: none;
   cursor: pointer;
 }
 .custom-list-element:last-child {
@@ -341,7 +344,7 @@ form textarea {
   width: 328px;
   padding: 0 36px;
   height: 89px;
-  background-color: #DB8876;
+  background-color: #db8876;
 }
 .info p {
   margin-top: 15px;
@@ -381,12 +384,12 @@ header {
 }
 
 h1 {
-  color: #901C1C;
+  color: #901c1c;
   margin-right: 100px;
 }
 
 h2 {
-  color: #901C1C;
+  color: #901c1c;
 }
 
 .logo {
@@ -412,7 +415,7 @@ ul {
   flex-direction: column;
 }
 .photographer_section article h2 {
-  color: #D3573C;
+  color: #d3573c;
   font-size: 2.25em;
   margin: 5px auto;
 }
@@ -433,7 +436,7 @@ ul {
 }
 .photographer_section--localisation {
   font-size: 0.8em;
-  color: #901C1C;
+  color: #901c1c;
   margin: 2px auto;
 }
 .photographer_section--slogan {
