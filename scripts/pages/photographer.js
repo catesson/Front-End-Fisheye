@@ -125,7 +125,6 @@ async function init() {
   const id = getId();
   // Récupère les datas des photographes
   const photographer = await filterPhotographers(id);
-  console.log(photographer);
   const media = await filterMedia(id);
   displayData(photographer, media);
 }
