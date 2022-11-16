@@ -45,7 +45,8 @@ export function mediaFactory(data) {
       coeur.setAttribute("src", "assets/icons/heart.svg");
       coeur.setAttribute("alt", "likes");
       //Ajout d'un like sur l'image et sur le total
-      linkCoeur.onclick = function () {
+      linkCoeur.onclick = function (e) {
+        e.preventDefault();
         nbLike.textContent = likes + 1;
         const nbLikeTotal = document.querySelector(".info .info_like");
         nbLikeTotal.textContent = parseInt(nbLikeTotal.textContent) + 1;
@@ -105,12 +106,13 @@ export function mediaFactory(data) {
       nbLike.textContent = likes;
 
       const coeur = document.createElement("img");
+      const linkCoeur = document.createElement("a");
+      linkCoeur.href="#"
       coeur.setAttribute("src", "assets/icons/heart.svg");
       coeur.setAttribute("alt", "likes");
-      coeur.setAttribute("tabindex", "0");
-
       //Ajout d'un like sur l'image et sur le total
-      coeur.onclick = function () {
+      linkCoeur.onclick = function (e) {
+        e.preventDefault();
         nbLike.textContent = likes + 1;
         const nbLikeTotal = document.querySelector(".info .info_like");
         nbLikeTotal.textContent = parseInt(nbLikeTotal.textContent) + 1;
@@ -122,7 +124,9 @@ export function mediaFactory(data) {
       article.appendChild(contenu);
       contenu.appendChild(title);
       contenu.appendChild(nbLike);
-      contenu.appendChild(coeur);
+      contenu.appendChild(linkCoeur);
+      linkCoeur.appendChild(coeur);
+
 
       return article;
     }
